@@ -10,10 +10,10 @@
 
 <table border="1" align="center">
 	<th colspan="2"><< 이승아 시스템 >></th>
-	<tr align="center">
-		<td><a href="/studentAdd">학생 등록</a></td>
-		<td><a href="#">학생 리스트</a></td>
-	</tr>
+		<tr align="center">
+			<td><a href="/student/add">학생 등록</a></td>
+			<td><a href="/student/list">학생 리스트</a></td>
+		</tr>
 </table>
 
 </body>
