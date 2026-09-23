@@ -19,36 +19,38 @@ public class StudentController {
 	
 	@RequestMapping("/add")
 	public String register() {
-		return "/";
+		return "/students";
 	}
 	
-	
-	
-	
+	@RequestMapping("/insert")
+	public String insert(StudentDTO dto) {
+		dao.insert(dto);
+		return "/students";
+	}
 	
 	@RequestMapping("/list")
 	public String list(Model model) {
 		List<StudentDTO> list = dao.studentsList();
 		model.addAttribute("list", list);
-		return "/";
+		return "/list";
 	}
 	
-	@RequestMapping("/")
+	@RequestMapping("/update")
 	public String update(StudentDTO dto) {
 		dao.updateList(dto);
-		return "/";
+		return "redirect:/student/list";
 	}
 	
-	@RequestMapping("/")
+	@RequestMapping("/delete")
 	public String delete(int id) {
 		dao.deleteList(id);
-		return "/";
+		return "redirect:/student/list";
 	}
 	
-	@RequestMapping("/")
+	@RequestMapping("/search")
 	public String search(String name, Model model) {
 		List<StudentDTO> list = dao.searchList(name);
-		model.addAttribute("list", list);
-		return "/";
+		model.addAttribute("searchlist", list);
+		return "redirect:/student/list";
 	}
 }
